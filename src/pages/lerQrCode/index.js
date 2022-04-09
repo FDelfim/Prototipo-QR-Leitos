@@ -5,7 +5,7 @@ import styles from './style'
 export default function LerQrCode() {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}> Leitor QR CODE</Text>
+            <Text style={styles.text}>Ler QR CODE</Text>
         </View>
     );
 

@@ -1,24 +1,29 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        backgroundColor: '#ffffff'
+
+    containerLeitos: {
+        paddingTop: 10,
+        alignItems: "center",
     },
-    text: {
-        fontSize: 27,
+
+    leito: {
+        paddingLeft: 10,
+        backgroundColor: '#dcdcdc',
+        width: '97%',
+        height: 50,
+        borderRadius: 5,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    title: {
+        fontSize: 20,
         fontWeight: 'bold',
     },
-    containerLeitos: {
-        backgroundColor: '#f1f2f3',
-        width: '100%',
-        height: 70,
-        margin: 3,
-        justifyContent: 'center',
-        borderRadius: 15,
-
+    status: {
+        left: '525%',
     }
+
 });
 
 export default styles
