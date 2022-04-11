@@ -6,6 +6,7 @@ import styles from './style'
 export default function LerQrCode() {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
+    const [text, setText] = useState('   ')
 
     useEffect(() => {
         (async () => {
@@ -16,7 +17,8 @@ export default function LerQrCode() {
 
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`QR CODE ${type} de ${data} foi escaneado!`);
+        setText(data);
+        console.log('Type:' + type + '/nData: ' + data)
     };
 
     if (hasPermission === null) {
@@ -30,13 +32,16 @@ export default function LerQrCode() {
         <View style={styles.container}>
             <BarCodeScanner
                 onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-                style={StyleSheet.absoluteFillObject}
+                style={styles.scanner}
             />
+            <View>
+                <Text style={styles.text}>{text}</Text>
+            </View>
             {scanned && <TouchableOpacity
                 style={styles.button}
-                onPress={() => { setScanned(false) }}
+                onPress={() => { setScanned(false), setText(' ') }}
             >
-                <Text style={styles.textButton}>TOQUE PARA ESCANEAR OUTRO QR CODE</Text>
+                <Text style={styles.textButton}>ESCANEAR OUTRO QR CODE</Text>
             </TouchableOpacity>}
         </View>
     );

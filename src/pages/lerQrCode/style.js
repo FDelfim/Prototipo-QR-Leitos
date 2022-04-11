@@ -2,9 +2,15 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        paddingTop: 50,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    text: {
+        marginTop: 20,
+        fontSize: 24,
+        textAlign: 'center',
+        color: "#000000",
     },
     button: {
         borderRadius: 20,
@@ -14,7 +20,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#4D96FF",
         paddingTop: 14,
         paddingBottom: 14,
-        marginTop: 30,
+        marginTop: 20,
     },
     textButton: {
         fontSize: 24,
@@ -22,6 +28,12 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         fontWeight: 'bold',
     },
+    scanner: {
+        width: 300,
+        height: 300,
+        overflow: 'hidden',
+        borderRadius: 20,
+    }
 });
 
 export default styles
