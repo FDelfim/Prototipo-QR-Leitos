@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import styles from './style';
 
 export default function Leito() {
+
+
+    const [estado, setEstado] = useState("#32cd32");
+
     return (
-        <View style={styles.leito}>
-            <Text style={styles.title}>Leito x</Text>
-            <Feather style={styles.status} name="circle" size={20} color={'#32cd32'} />
+
+        <View style={styles.container}>
+            <View style={styles.leito}>
+                <Text style={styles.titleOcupados}>• Leitos Ocupados</Text>
+                <Text style={styles.texto}> No momento existem 57 leitos ocupados</Text>
+            </View>
+
+            <View style={styles.leito}>
+                <Text style={styles.titleLivres}>• Leitos Livres</Text>
+                <Text style={styles.texto}> No momento existem 11 leitos livres</Text>
+            </View>
         </View>
     );
 }
