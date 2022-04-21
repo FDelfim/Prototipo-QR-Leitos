@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons'
 
 import styles from './style'
 import Leitos from './leito'
-import database from '../../config/firebase'
+import database from '../../config/database'
 
 export default function ListLeitos() {
 
