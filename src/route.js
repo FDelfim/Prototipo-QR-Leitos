@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
-
 import ListLeitos from './pages/listLeitos'
 import Perfil from './pages/perfil'
 import LerQrCode from './pages/lerQrCode'
