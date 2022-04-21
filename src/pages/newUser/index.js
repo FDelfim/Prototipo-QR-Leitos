@@ -6,19 +6,17 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
 } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import NewUser from "../newUser";
 import styles from "./style";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-//import firebase from "../../config/firebaseconfig";
-const Stack = createStackNavigator();
+// import firebase from "../../config/firebaseconfig";
 
-export default function Perfil({ navigation }, props) {
+export default function NewUser({ navigation }, props) {
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [errorLogin, setErrorLogin] = useState("");
+  const [errorRegister, setErrorRegister] = useState("");
 
-  const loginFirebase = () => {
+  const register = () => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, senha)
@@ -36,7 +34,14 @@ export default function Perfil({ navigation }, props) {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Cadastro</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Digite o nome:"
+        type="text"
+        onChangeText={(text) => setNome(text)}
+        value={nome}
+      />
       <TextInput
         style={styles.input}
         placeholder="Digite o email:"
@@ -52,7 +57,7 @@ export default function Perfil({ navigation }, props) {
         onChangeText={(text) => setSenha(text)}
         value={senha}
       />
-      {errorLogin === true ? (
+      {errorRegister === true ? (
         <View style={styles.contentAlert}>
           <MaterialCommunityIcons
             name="alert-circle"
@@ -64,20 +69,20 @@ export default function Perfil({ navigation }, props) {
       ) : (
         <View />
       )}
-      {email === "" || senha === "" ? (
-        <TouchableOpacity disabled="true" style={styles.buttonLogin}>
-          <Text style={styles.textButtonLogin}>Entrar</Text>
+      {email === "" || senha === "" || nome === "" ? (
+        <TouchableOpacity disabled="true" style={styles.buttonRegister}>
+          <Text style={styles.textButtonRegister}>Cadastrar</Text>
         </TouchableOpacity>
       ) : (
-        <TouchableOpacity style={styles.buttonLogin} onPress={() => {}}>
-          <Text style={styles.textButtonLogin}>Entrar</Text>
+        <TouchableOpacity style={styles.buttonRegister} onPress={() => {}}>
+          <Text style={styles.textButtonRegister}>Cadastrar</Text>
         </TouchableOpacity>
       )}
-      <Text style={styles.registration}>
-        Não possui uma conta? Se inscreva
+      <Text style={styles.login}>
+        Já possui uma conta? Entre
         <Text
-          style={styles.linkSubscribe}
-          onPress={navigation.navigate("NewUser")}
+          style={styles.linkLogin}
+          onPress={() => navigation.navigate("Perfil")}
         >
           {" "}
           aqui

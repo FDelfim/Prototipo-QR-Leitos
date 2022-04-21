@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#198CFF",
     borderBottomWidth: 1,
   },
-  buttonLogin: {
+  buttonRegister: {
     width: 200,
     height: 50,
     alignItems: "center",
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginTop: 30,
   },
-  textButtonLogin: {
+  textButtonRegister: {
     color: "white",
   },
   contentAlert: {
@@ -46,11 +46,11 @@ const styles = StyleSheet.create({
     color: "#bdbdbd",
     fontSize: 16,
   },
-  registration: {
+  login: {
     marginTop: 20,
     color: "#4d5156",
   },
-  linkSubscribe: {
+  linkLogin: {
     color: "#1877f2",
     fontSize: 16,
   },
