@@ -1,12 +1,57 @@
 import React from 'react';
-import { Component } from 'react';
-import { View, FlatList } from 'react-native';
-
-//faker
+import { useEffect, useState } from 'react'
+import { View, FlatList, Text, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons'
 
 import styles from './style'
 import Leitos from './leito'
+import database from '../../config/firebase'
 
+export default function ListLeitos() {
+
+    const [leitos, setLeitos] = useState([])
+
+    function leitosLivres(id) {
+        database.collection("Leito").doc(id).search()
+    }
+
+    useEffect(() => {
+        database.collection("Leito").onSnapshot((querry) => {
+            const list = []
+            querry.forEach((doc) => {
+                list.push({ ...doc.data(), id: doc.id })
+            })
+            setLeitos(list)
+        })
+    }, [])
+
+
+    return (
+        <View style={styles.containerLeitos}>
+            <FlatList
+                showsVerticalScrollIndicator={false}
+                data={Leitos}
+                renderItem={({ item }) => {
+                    return (
+                        <View>
+                            <TouchableOpacity>
+                                <FontAwesome
+                                    name='circle'
+                                    size={23}
+                                    color='#c9f2a2'>
+                                </FontAwesome>
+                            </TouchableOpacity>
+                            <Text>
+
+                            </Text>
+                        </View>
+                    );
+                }}  >
+
+            </FlatList>
+        </View>
+    );
+}
 
 // export default class ListLeitos extends Component {
 
@@ -44,11 +89,3 @@ import Leitos from './leito'
 //     }
 
 // }
-
-export default function ListLeitos() {
-    return (
-        <View style={styles.containerLeitos}>
-            <Leitos />
-        </View>
-    );
-}

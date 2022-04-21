@@ -1,7 +1,6 @@
 import * as React from 'react';
-import Reacr, { Component } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native'
 import { NavigationContainer } from "@react-navigation/native"
+import { Component } from 'react';
 
 import Routes from './src/route';
 

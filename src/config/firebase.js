@@ -1,7 +1,6 @@
-import firebase from "firebase"
-import "firebase/storage"
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import firebase from 'firebase/compat/app';
+import "firebase/compat/auth"
+import "firebase/compat/firestore"
 
 const firebaseConfig = {
     apiKey: "AIzaSyCUrnlc2GWd1CqIgelEU05ExxdVllBUhUU",
@@ -13,6 +12,14 @@ const firebaseConfig = {
     measurementId: "G-GN7H9K6VQV"
 };
 
-const app = initializeApp(firebaseConfig);
-const database = firebase.firestore();
+let app;
+
+if (firebase.apps.length === 0) {
+    app = firebase.initializeApp(firebaseConfig)
+} else {
+    app = firebase.app()
+}
+
+const database = app.firestore()
+
 export default database
