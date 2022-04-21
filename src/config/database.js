@@ -20,6 +20,6 @@ if (firebase.apps.length === 0) {
     app = firebase.app()
 }
 
-// const database = app.firestore()
+const database = app.firestore()
 
-export default firebase
+export default database
