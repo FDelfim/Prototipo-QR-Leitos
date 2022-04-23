@@ -1,15 +1,15 @@
 import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
-import ListLeitos from './pages/listLeitos'
-import Perfil from './pages/perfil'
-import LerQrCode from './pages/lerQrCode'
+import ListLeitos from '../pages/listLeitos'
+import Perfil from '../pages/perfil'
+import LerQrCode from '../pages/lerQrCode'
 
 import { Entypo, Feather } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
-export default function Route() {
+export default function Menu() {
     return (
         <Tab.Navigator
             screenOptions={{
@@ -18,7 +18,6 @@ export default function Route() {
                     paddingTop: 5,
                 },
             }
-
             }>
             <Tab.Screen
                 name="Lista de Leitos"
