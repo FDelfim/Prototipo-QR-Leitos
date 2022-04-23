@@ -5,11 +5,6 @@ import { FontAwesome } from '@expo/vector-icons'
 
 import styles from './style'
 import database from '../../config/database'
-import Leito from './leito'
-import { RouteStack } from '../../route'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-
 
 export default function ListLeitos({ navigation }) {
 
@@ -35,7 +30,7 @@ export default function ListLeitos({ navigation }) {
                     return (
                         <TouchableOpacity
                             onPress={() => {
-                                navigation.navigate({ Leito })
+                                navigation.navigate("Leito")
                             }}>
                             <View style={styles.leito}>
                                 <FontAwesome

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     containerLeitos: {
         paddingTop: 10,
         flex: 1,
+
     },
 
     leito: {
