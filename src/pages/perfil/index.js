@@ -77,7 +77,7 @@ export default function Perfil({ navigation }, props) {
                 Não possui uma conta? Se inscreva
                 <Text
                     style={styles.linkSubscribe}
-                    onPress={navigation.navigate("NewUser")}
+                // onPress={navigation.navigate("NewUser")}
                 >
                     {" "}
                     aqui

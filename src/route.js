@@ -4,12 +4,25 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import ListLeitos from './pages/listLeitos'
 import Perfil from './pages/perfil'
 import LerQrCode from './pages/lerQrCode'
+import Leito from './pages/listLeitos/leito'
 
 import { Entypo, Feather } from '@expo/vector-icons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-export default function Route() {
+export function RouteStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name='Leito'
+                component={Leito} />
+        </Stack.Navigator>
+    );
+}
+
+export function Route() {
     return (
         <Tab.Navigator
             screenOptions={{
@@ -18,7 +31,6 @@ export default function Route() {
                     paddingTop: 5,
                 },
             }
-
             }>
             <Tab.Screen
                 name="Lista de Leitos"
