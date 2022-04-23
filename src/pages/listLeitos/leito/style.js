@@ -52,10 +52,39 @@ const styles = StyleSheet.create({
     },
 
     detailsEnd: {
-        fontSize: 24,
+        fontSize: 20,
         paddingLeft: 10,
         paddingTop: 1,
+    },
 
+    buttonLabel: {
+        backgroundColor: "green",
+        width: '25%',
+        borderRadius: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        position: "absolute",
+        bottom: '5%',
+        left: '68%',
+        justifyContent: "center",
+        alignItems: "center"
+    },
+
+    buttonText: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontSize: 20,
+        color: 'white',
+    },
+
+    modalContainer: {
+        backgroundColor: 'white',
+        width: '82%',
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        borderRadius: 50,
     }
 });
 

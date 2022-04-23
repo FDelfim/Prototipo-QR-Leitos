@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
-import { View, FlatList, Text, TouchableOpacity } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity, Modal } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
 
 import styles from './style'
@@ -27,10 +27,14 @@ export default function ListLeitos({ navigation }) {
                 showsVerticalScrollIndicator={false}
                 data={leitos}
                 renderItem={({ item }) => {
+                    console.log({ item })
                     return (
                         <TouchableOpacity
                             onPress={() => {
-                                navigation.navigate("Leito")
+                                navigation.navigate("Leito", {
+                                    id: item.id,
+                                    endereco: item.endereco
+                                })
                             }}>
                             <View style={styles.leito}>
                                 <FontAwesome
