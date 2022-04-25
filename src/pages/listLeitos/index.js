@@ -22,12 +22,11 @@ export default function ListLeitos({ navigation }) {
 
 
     return (
-        <View style={styles.containerLeitos}>
+        <View style={[styles.containerLeitos]}>
             <FlatList
                 showsVerticalScrollIndicator={false}
                 data={leitos}
                 renderItem={({ item }) => {
-                    console.log({ item })
                     return (
                         <TouchableOpacity
                             onPress={() => {

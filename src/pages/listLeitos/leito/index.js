@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Modal } from "react-native";
+import { View, Text, TouchableOpacity, Modal } from "react-native";
 import styles from '../leito/style'
 import { ModalPicker } from "../../../../components/ModalPicker";
-import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 export default function Leito({ navigation, route }) {
 
@@ -38,6 +37,7 @@ export default function Leito({ navigation, route }) {
             <View style={[{ backgroundColor: '#E7E6E1', width: '97%', borderRadius: 15, paddingBottom: 15 }]}>
                 <View style={styles.containerDesc} >
                     <Text style={styles.detailsFont}>Estado do Leito </Text>
+
 
                 </View>
 
