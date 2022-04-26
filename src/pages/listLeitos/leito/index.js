@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, route } from "react";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
 import styles from '../leito/style'
 import { ModalPicker } from "../../../../components/ModalPicker";
 
-export default function Leito({ navigation, route }) {
+export default function Leito({ route, navigation }) {
 
-    const [status, setStatus] = useState('ESCOLHA UMA OPÇÃO')
+    const { id, endereco } = route.params
+
+    const [status, setStatus] = useState('<                                   >')
 
     const [isModalVisble, setisModalVisible] = useState(false)
     const changeModalVisibility = (bool) => {
@@ -21,24 +23,22 @@ export default function Leito({ navigation, route }) {
 
             <View style={styles.title}>
                 <Text style={styles.titleFont}>
-                    Leito A
+                    {id}
                 </Text>
             </View>
 
             <View style={styles.containerDesc}>
                 <View style={{ paddingBottom: 10, }}>
                     <Text style={styles.detailsFont}>Endereço </Text>
-                    <Text style={styles.detailsEnd}>Ala: Norte</Text>
-                    <Text style={styles.detailsEnd}>Tipo: SUS</Text>
-                    <Text style={styles.detailsEnd}>Tipo: Criança</Text>
+                    <Text style={styles.detailsEnd}>Ala: {endereco[0]}</Text>
+                    <Text style={styles.detailsEnd}>Tipo: {endereco[1]}</Text>
+                    <Text style={styles.detailsEnd}>Tipo: {endereco[2]}</Text>
                 </View>
             </View>
 
             <View style={[{ backgroundColor: '#E7E6E1', width: '97%', borderRadius: 15, paddingBottom: 15 }]}>
                 <View style={styles.containerDesc} >
                     <Text style={styles.detailsFont}>Estado do Leito </Text>
-
-
                 </View>
 
                 <View style={styles.modalContainer}>

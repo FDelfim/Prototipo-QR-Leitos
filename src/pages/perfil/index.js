@@ -5,9 +5,9 @@ import { FontAwesome } from '@expo/vector-icons'
 
 import styles from './style'
 
-export default function Perfil() {
+export default function Perfil({ navigation }) {
     return (
-        <View>
+        <View style={styles.containerPerfil}>
             <View style={styles.head}>
                 <View>
                     <FontAwesome
@@ -17,7 +17,7 @@ export default function Perfil() {
                 </View>
                 <View>
                     <Text style={styles.user}>
-                        User
+                        João
                     </Text>
                 </View>
             </View>
@@ -29,6 +29,14 @@ export default function Perfil() {
                     Enfermeiro
                 </Text>
             </View>
-        </View>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Login")}>
+                <View style={styles.logout}>
+                    <Text style={{ fontSize: 24, color: 'white', fontWeight: 'bold' }}>
+                        Sair
+                    </Text>
+                </View>
+            </TouchableOpacity>
+        </View >
     );
 }

@@ -3,6 +3,11 @@ import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 
+    containerPerfil: {
+        paddingTop: 10,
+        flex: 1,
+        color: "#ffffff",
+    },
     head: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -36,6 +41,20 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
         alignSelf: 'center'
     },
+
+    logout: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignSelf: 'center',
+        backgroundColor: 'red',
+        borderRadius: 50,
+        width: '50%',
+        height: 50,
+        position: 'absolute',
+        bottom: -440,
+
+    }
 })
 
 export default styles;

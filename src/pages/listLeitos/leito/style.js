@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     buttonText: {
         paddingTop: 10,
         paddingBottom: 10,
-        fontSize: 20,
         color: 'white',
     },
 
@@ -84,6 +83,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',
+        alignContent: 'center',
         borderRadius: 50,
     }
 });

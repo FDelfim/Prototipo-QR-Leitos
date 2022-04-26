@@ -1,12 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
-import { View, FlatList, Text, TouchableOpacity, Modal } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
 
 import styles from './style'
 import database from '../../config/database'
 
-export default function ListLeitos({ navigation }) {
+export default function ListLeitos({ navigation, route }) {
 
     const [leitos, setLeitos] = useState([])
 
@@ -20,7 +20,6 @@ export default function ListLeitos({ navigation }) {
         })
     }, [])
 
-
     return (
         <View style={[styles.containerLeitos]}>
             <FlatList
@@ -31,7 +30,7 @@ export default function ListLeitos({ navigation }) {
                         <TouchableOpacity
                             onPress={() => {
                                 navigation.navigate("Leito", {
-                                    id: item.id,
+                                    id: item.codigo,
                                     endereco: item.endereco
                                 })
                             }}>

@@ -6,14 +6,14 @@ import {
     TouchableOpacity,
     KeyboardAvoidingView,
 } from "react-native";
-import styles from "./style";
+import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import firebase from "../../config/firebase";
 
 const database = firebase.firestore();
 
-export default function Login({ navigation }, props) {
+export default function Login({ navigation }) {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [errorLogin, setErrorLogin] = useState("");

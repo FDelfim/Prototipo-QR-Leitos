@@ -4,7 +4,8 @@ import { Component } from 'react';
 import { createStackNavigator } from "@react-navigation/stack"
 
 import Menu from "./src/screens/menu";
-import Leito from './src/pages/listLeitos/leito'
+import Leito from './src/pages/listLeitos/leito';
+import Login from './src/pages/login';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +13,8 @@ function MyStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Menu" component={Menu} options={{ headerShown: false }} />
-      <Stack.Screen name="Leito" component={Leito} />
+      <Stack.Screen name="Leito" component={Leito} getId={({ params }) => params.id} />
+      <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
 }
