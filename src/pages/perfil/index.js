@@ -17,16 +17,16 @@ export default function Perfil({ navigation }) {
                 </View>
                 <View>
                     <Text style={styles.user}>
-                        João
+                        Administrador
                     </Text>
                 </View>
             </View>
             <View style={styles.containerCargo}>
                 <Text style={styles.cargo}>
-                    Cargo:
+                    Cargo
                 </Text>
                 <Text style={styles.cargo2}>
-                    Enfermeiro
+                    Administrador
                 </Text>
             </View>
             <TouchableOpacity

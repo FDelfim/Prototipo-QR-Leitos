@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     user: {
         fontSize: 32,
-        paddingLeft: 100,
+        paddingLeft: 50,
         color: 'blue'
     },
 

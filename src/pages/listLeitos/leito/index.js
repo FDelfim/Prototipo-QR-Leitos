@@ -1,13 +1,17 @@
-import React, { useState, route } from "react";
+import React, { useState, useEffect, route } from "react";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
-import styles from '../leito/style'
 import { ModalPicker } from "../../../../components/ModalPicker";
+
+import database from '../../../config/database'
+import styles from '../leito/style'
 
 export default function Leito({ route, navigation }) {
 
-    const { id, endereco } = route.params
+    const { id, endereco, estado } = route.params
+    var estadoShow = estado.path.substr(14, estado.path.length);
+    estadoShow = estadoShow[0].toUpperCase() + estadoShow.substr(1);
 
-    const [status, setStatus] = useState('<                                   >')
+    const [status, setStatus] = useState(estadoShow)
 
     const [isModalVisble, setisModalVisible] = useState(false)
     const changeModalVisibility = (bool) => {
@@ -31,8 +35,8 @@ export default function Leito({ route, navigation }) {
                 <View style={{ paddingBottom: 10, }}>
                     <Text style={styles.detailsFont}>Endereço </Text>
                     <Text style={styles.detailsEnd}>Ala: {endereco[0]}</Text>
-                    <Text style={styles.detailsEnd}>Tipo: {endereco[1]}</Text>
-                    <Text style={styles.detailsEnd}>Tipo: {endereco[2]}</Text>
+                    <Text style={styles.detailsEnd}>Tipo: {endereco[1]} - {endereco[2]} </Text>
+                    <Text style={styles.detailsEnd}>Ultima Modificação:</Text>
                 </View>
             </View>
 
@@ -62,7 +66,11 @@ export default function Leito({ route, navigation }) {
             </View>
 
             <TouchableOpacity style={styles.buttonLabel}
-                onPress={() => navigation.navigate("Menu")}
+                onPress={() => {
+
+                    navigation.navigate("Menu")
+                }
+                }
             >
                 <View>
                     <Text style={styles.buttonText}>

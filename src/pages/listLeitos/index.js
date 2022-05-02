@@ -6,7 +6,7 @@ import { FontAwesome } from '@expo/vector-icons'
 import styles from './style'
 import database from '../../config/database'
 
-export default function ListLeitos({ navigation, route }) {
+export default function ListLeitos({ navigation }) {
 
     const [leitos, setLeitos] = useState([])
 
@@ -31,7 +31,8 @@ export default function ListLeitos({ navigation, route }) {
                             onPress={() => {
                                 navigation.navigate("Leito", {
                                     id: item.codigo,
-                                    endereco: item.endereco
+                                    endereco: item.endereco,
+                                    estado: item.status
                                 })
                             }}>
                             <View style={styles.leito}>
