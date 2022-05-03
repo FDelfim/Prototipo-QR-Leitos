@@ -5,13 +5,14 @@ import { ModalPicker } from "../../../../components/ModalPicker";
 import database from '../../../config/database'
 import styles from '../leito/style'
 
+
 export default function Leito({ route, navigation }) {
 
-    const { id, endereco, estado } = route.params
+    const { idid, id, endereco, estado, ultimaMod } = route.params
     var estadoShow = estado.path.substr(14, estado.path.length);
     estadoShow = estadoShow[0].toUpperCase() + estadoShow.substr(1);
 
-    const [status, setStatus] = useState(estadoShow)
+    const [statusl, setStatusl] = useState(estadoShow)
 
     const [isModalVisble, setisModalVisible] = useState(false)
     const changeModalVisibility = (bool) => {
@@ -19,7 +20,7 @@ export default function Leito({ route, navigation }) {
     }
 
     const setOption = (option) => {
-        setStatus(option)
+        setStatusl(option.toLowerCase())
     }
 
     return (
@@ -36,7 +37,7 @@ export default function Leito({ route, navigation }) {
                     <Text style={styles.detailsFont}>Endereço </Text>
                     <Text style={styles.detailsEnd}>Ala: {endereco[0]}</Text>
                     <Text style={styles.detailsEnd}>Tipo: {endereco[1]} - {endereco[2]} </Text>
-                    <Text style={styles.detailsEnd}>Ultima Modificação:</Text>
+                    <Text style={styles.detailsEnd}>Ultima Modificação: {new Date(ultimaMod).toUTCString()} </Text>
                 </View>
             </View>
 
@@ -48,7 +49,7 @@ export default function Leito({ route, navigation }) {
                 <View style={styles.modalContainer}>
                     <TouchableOpacity
                         onPress={() => changeModalVisibility(true)}>
-                        <Text style={[styles.detailsEnd]}>{status}</Text>
+                        <Text style={[styles.detailsEnd]}>{statusl}</Text>
                     </TouchableOpacity>
                     <Modal
                         transparent={true}
@@ -67,8 +68,16 @@ export default function Leito({ route, navigation }) {
 
             <TouchableOpacity style={styles.buttonLabel}
                 onPress={() => {
-
-                    navigation.navigate("Menu")
+                    // database.collection('modificaStatus').add({
+                    //     IdLeito: refLeito,
+                    //     data_hora: date.toUTCString(),
+                    //     modificacao: database.collection('estadoDoLeito').doc(statusl)
+                    // })
+                    database.collection('Leito').doc(idid).update({
+                        status: database.collection('estadoDoLeito').doc(statusl),
+                        ultimaMod: new Date()
+                    })
+                    navigation.navigate('Menu')
                 }
                 }
             >

@@ -30,9 +30,11 @@ export default function ListLeitos({ navigation }) {
                         <TouchableOpacity
                             onPress={() => {
                                 navigation.navigate("Leito", {
+                                    idid: item.id,
                                     id: item.codigo,
                                     endereco: item.endereco,
-                                    estado: item.status
+                                    estado: item.status,
+                                    ultimaMod: item.ultimaMod.toDate(),
                                 })
                             }}>
                             <View style={styles.leito}>
