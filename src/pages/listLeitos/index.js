@@ -6,7 +6,7 @@ import { FontAwesome } from '@expo/vector-icons'
 import styles from './style'
 import database from '../../config/database'
 
-export default function ListLeitos({ navigation }) {
+export default function ListLeitos({ route, navigation }) {
 
     const [leitos, setLeitos] = useState([])
 

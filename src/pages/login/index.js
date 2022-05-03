@@ -8,10 +8,10 @@ import {
 } from "react-native";
 import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-import firebase from "../../config/firebase";
-
-const database = firebase.firestore();
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+} from "firebase/auth";
 
 export default function Login({ navigation }) {
     const [email, setEmail] = useState("");
@@ -19,17 +19,26 @@ export default function Login({ navigation }) {
     const [errorLogin, setErrorLogin] = useState("");
 
     const loginFirebase = () => {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, senha)
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, senha)
             .then((userCredential) => {
-                var user = userCredential.user;
+                const user = userCredential.user;
+                navigation.navigate("Menu", { idUser: user.uid });
             })
             .catch((error) => {
-                var erroCode = error.erroCode;
-                var erroMessage = error.message;
+                setErrorLogin(true);
+                const errorCode = error.errorCode;
+                const errorMessage = error.errorMessage;
             });
     };
+
+    // useEffect(() => {
+    //   firebase.onAuthStateChanged(function (user) {
+    //     if (user) {
+    //       navigation.navigate("ListLeitos", { idUser: user.uid });
+    //     }
+    //   });
+    // }, []);
 
     return (
         <KeyboardAvoidingView
@@ -69,20 +78,20 @@ export default function Login({ navigation }) {
                     <Text style={styles.textButtonLogin}>Entrar</Text>
                 </TouchableOpacity>
             ) : (
-                <TouchableOpacity style={styles.buttonLogin} onPress={() => { }}>
+                <TouchableOpacity style={styles.buttonLogin} onPress={loginFirebase}>
                     <Text style={styles.textButtonLogin}>Entrar</Text>
                 </TouchableOpacity>
             )}
-            <Text style={styles.registration}>
-                Não possui uma conta? Se inscreva
-                <Text
-                    style={styles.linkSubscribe}
-                // onPress={navigation.navigate("NewUser")}
-                >
-                    {" "}
-                    aqui
-                </Text>
-            </Text>
+            {/* <Text style={styles.registration}>
+        Não possui uma conta? Se inscreva
+        <Text
+          style={styles.linkSubscribe}
+          // onPress={navigation.navigate("NewUser")}
+        >
+          {" "}
+          aqui
+        </Text>
+      </Text> */}
             <View style={{ height: 100 }} />
         </KeyboardAvoidingView>
     );
