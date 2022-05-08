@@ -25,6 +25,11 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         fontWeight: 'bold',
     },
+
+    livre: {
+        fontSize: 20,
+        color: 'green'
+    }
 });
 
 export default styles

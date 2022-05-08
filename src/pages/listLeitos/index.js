@@ -39,9 +39,7 @@ export default function ListLeitos({ route, navigation }) {
                             }}>
                             <View style={styles.leito}>
                                 <FontAwesome
-                                    name="circle"
-                                    size='20'
-                                    color='green' />
+                                    name="circle" style={styles.livre} />
                                 <Text style={styles.title}>
                                     {item.codigo}
                                 </Text>

@@ -1,12 +1,15 @@
 import React, { useState, useEffect, route } from "react";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
 import { ModalPicker } from "../../../../components/ModalPicker";
+import { LogBox } from 'react-native';
+
 
 import database from '../../../config/database'
 import styles from '../leito/style'
 
-
 export default function Leito({ route, navigation }) {
+
+    LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']);
 
     const { idid, id, endereco, estado, ultimaMod } = route.params
     var estadoShow = estado.path.substr(14, estado.path.length);
@@ -34,7 +37,7 @@ export default function Leito({ route, navigation }) {
             </View>
 
             <View style={styles.containerDesc}>
-                <View style={{ paddingBottom: 10, }}>
+                <View style={{ paddingBottom: 10 }}>
                     <Text style={styles.detailsFont}>Endereço </Text>
                     <Text style={styles.detailsEnd}>Ala: {endereco[0]}</Text>
                     <Text style={styles.detailsEnd}>Tipo: {endereco[1]} - {endereco[2]} </Text>

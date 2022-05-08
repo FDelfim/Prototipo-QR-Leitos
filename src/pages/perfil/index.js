@@ -11,9 +11,7 @@ export default function Perfil({ navigation }) {
             <View style={styles.head}>
                 <View>
                     <FontAwesome
-                        name='circle'
-                        size='80'
-                        color='grey' />
+                        name='circle' style={styles.icon} />
                 </View>
                 <View>
                     <Text style={styles.user}>

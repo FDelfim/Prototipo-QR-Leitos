@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     },
 
     cargo: {
-        paddingTop: 10,
         fontSize: 24,
+        paddingTop: 10,
         fontWeight: 'bold'
     },
 
@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: -440,
 
+    },
+
+    icon: {
+        fontSize: 80,
+        color: 'grey'
     }
 })
 

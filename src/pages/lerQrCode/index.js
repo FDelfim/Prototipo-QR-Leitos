@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button, Touchable, TouchableOpacityBase, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import styles from './style'
+import database from '../../config/database'
 
-export default function LerQrCode() {
+export default function LerQrCode({ navigation }) {
+
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     const [text, setText] = useState('   ')
+    const [leito, setLeito] = useState(null);
+
+
+    function seachLeito(txt) {
+        database.collection('Leito').where('id'.equalsTo(txt)).onSnapshot((querry) => {
+            const l = []
+            querry.forEach((doc) => {
+                l.push(doc.data());
+            })
+            setLeito(l[0])
+        }
+        )
+    }
 
     useEffect(() => {
         (async () => {
@@ -15,23 +30,34 @@ export default function LerQrCode() {
         })();
     }, []);
 
-    const handleBarCodeScanned = ({ type, data }) => {
+    const handleBarCodeScanned = ({ data }) => {
         setScanned(true);
         setText(data);
-        console.log('Type:' + type + '/nData: ' + data)
+        seachLeito(text);
+        console.log(text)
     };
 
     if (hasPermission === null) {
-        return <Text style={styles.text}>Aguardando permissão de acessoa a câmera!</Text>;
+        return <Text style={styles.text}>Aguardando permissão de acesso a câmera!</Text>;
     }
     if (hasPermission === false) {
-        return <Text style={styles.text}>No access to camera</Text>;
+        return <Text style={styles.text}>Sem acesso a câmera</Text>;
     }
 
     return (
         <View style={styles.container}>
             <BarCodeScanner
-                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned => {
+                    // (
+                    //     navigation.navigate('Login', {
+                    //         idid: leito.id,
+                    //         id: leito.codigo,
+                    //         endereco: leito.endereco,
+                    //         estado: leito.status,
+                    //         ultimaMod: leito.ultimaMod.toDate()
+                    //     })
+                    // );
+                }}
                 style={styles.scanner}
             />
             <View>
