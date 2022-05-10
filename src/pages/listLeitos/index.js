@@ -20,6 +20,8 @@ export default function ListLeitos({ route, navigation }) {
         })
     }, [])
 
+
+
     return (
         <View style={[styles.containerLeitos]}>
             <FlatList

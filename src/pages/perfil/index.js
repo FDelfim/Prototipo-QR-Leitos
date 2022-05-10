@@ -27,14 +27,14 @@ export default function Perfil({ navigation }) {
                     Administrador
                 </Text>
             </View>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Login")}>
-                <View style={styles.logout}>
+            <View>
+                <TouchableOpacity style={styles.logout}
+                    onPress={() => { navigation.navigate("Login") }}>
                     <Text style={{ fontSize: 24, color: 'white', fontWeight: 'bold' }}>
                         Sair
                     </Text>
-                </View>
-            </TouchableOpacity>
+                </TouchableOpacity>
+            </View>
         </View >
     );
 }
