@@ -8,6 +8,8 @@ import ListStatus from "../pages/listLeitos/ListStatus";
 
 import { Entypo, Feather } from "@expo/vector-icons";
 import ListAlas from "../pages/listLeitos/ListAlas";
+import ListConvenio from "../pages/listLeitos/ListConvenio";
+import ListTipo from "../pages/listLeitos/ListTipo";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +26,7 @@ export default function Menu() {
     >
       <Tab.Screen
         name="Leitos"
-        component={ListStatus}
+        component={ListTipo}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Entypo name="home" size={size} color={color} />

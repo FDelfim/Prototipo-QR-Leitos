@@ -73,7 +73,7 @@ export default function ListStatus({ navigation }) {
     const list = [];
     leitos.forEach((Leito) => {
       if (
-        Leito.status.path == "estadsoDoLeito/ocupado" ||
+        Leito.status.path == "estadoDoLeito/ocupado" ||
         Leito.status.path == "estadoDoLeito/em alta"
       ) {
         list.push(Leito);
