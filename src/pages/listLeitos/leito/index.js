@@ -14,7 +14,6 @@ export default function Leito({ route, navigation }) {
     const { idid, id, endereco, estado, ultimaMod } = route.params
     var estadoShow = estado.path.substr(14, estado.path.length);
     estadoShow = estadoShow[0].toUpperCase() + estadoShow.substr(1);
-    const refLeito = idid;
 
     const [statusl, setStatusl] = useState(estadoShow)
 

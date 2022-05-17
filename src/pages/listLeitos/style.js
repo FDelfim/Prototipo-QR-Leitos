@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
 
     livre: {
         fontSize: 20,
-        color: 'green'
     }
 });
 

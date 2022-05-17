@@ -1,24 +1,12 @@
 import React from 'react';
-import { useEffect, useState } from 'react'
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
 
 import styles from './style'
-import database from '../../config/database'
 
-export default function ListLeitos({ route, navigation }) {
+export default function Lista({ route, navigation }) {
 
-    const [leitos, setLeitos] = useState([])
-
-    useEffect(() => {
-        database.collection("Leito").onSnapshot((querry) => {
-            const list = [];
-            querry.forEach((doc) => {
-                list.push({ ...doc.data(), id: doc.id });
-            });
-            setLeitos(list)
-        })
-    }, [])
+    const { leitos, cor } = route.params
 
     return (
         <View style={[styles.containerLeitos]}>
@@ -39,7 +27,8 @@ export default function ListLeitos({ route, navigation }) {
                             }}>
                             <View style={styles.leito}>
                                 <FontAwesome
-                                    name="circle" style={styles.livre} />
+                                    name="circle"
+                                    color={cor} style={styles.livre} />
                                 <Text style={styles.title}>
                                     {item.codigo}
                                 </Text>

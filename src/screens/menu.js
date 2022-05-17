@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import ListLeitos from '../pages/listLeitos'
 import Perfil from '../pages/perfil'
 import LerQrCode from '../pages/lerQrCode'
+import ListStatus from '../pages/listLeitos/ListStatus'
 
 import { Entypo, Feather } from '@expo/vector-icons';
 
@@ -15,13 +16,14 @@ export default function Menu() {
             screenOptions={{
                 tabBarStyle: {
                     paddingTop: 5,
-                    paddingTop: 5,
+                    paddingBottom: 10,
+                    height: 60,
                 },
             }
             }>
             <Tab.Screen
-                name="Lista de Leitos"
-                component={ListLeitos}
+                name="Leitos"
+                component={ListStatus}
                 options={{
                     tabBarIcon: ({ size, color }) => (
                         <Entypo name="home" size={size} color={color} />
