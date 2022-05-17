@@ -11,12 +11,12 @@ import { FontAwesome } from "@expo/vector-icons";
 
 import database from "../../config/database";
 
-export default function ListStatus({ navigation }) {
+export default function ListAlas({ navigation }) {
   const [leitos, setLeitos] = useState([]);
-  const [livre, setLivres] = useState([]);
-  const [ocupados, setOcupados] = useState([]);
-  const [aLimp, setALimp] = useState([]);
-  const [aFor, setAFor] = useState([]);
+  const [sul, setSul] = useState([]);
+  const [norte, setNorte] = useState([]);
+  const [leste, setLeste] = useState([]);
+  const [oeste, setOeste] = useState([]);
 
   useEffect(() => {
     database.collection("Leito").onSnapshot((querry) => {
@@ -26,59 +26,49 @@ export default function ListStatus({ navigation }) {
       });
       setLeitos(list);
     });
-    setLiv();
-    setOc();
-    setAl();
-    setAf();
+    setN();
+    setS();
+    setL();
+    setO();
   }, []);
 
-  function setLiv() {
+  function setN() {
     const list = [];
     leitos.forEach((Leito) => {
-      if (Leito.status.path == "estadoDoLeito/livre") {
+      if (Leito.endereco[0] == "ala norte") {
         list.push(Leito);
       }
-      setLivres(list);
+      setNorte(list);
     });
   }
 
-  function setAl() {
+  function setS() {
     const list = [];
     leitos.forEach((Leito) => {
-      if (
-        Leito.status.path ==
-          "estadoDoLeito/aguardando higienizacao e limpeza" ||
-        Leito.status.path == "estadoDoLeito/em higienizacao"
-      ) {
+      if (Leito.endereco[0] == "ala sul") {
         list.push(Leito);
       }
-      setALimp(list);
+      setSul(list);
     });
   }
 
-  function setAf() {
+  function setL() {
     const list = [];
     leitos.forEach((Leito) => {
-      if (
-        Leito.status.path == "estadoDoLeito/aguardando forragem" ||
-        Leito.status.path == "estadoDoLeito/em processo de forragem"
-      ) {
+      if (Leito.endereco[0] == "ala leste") {
         list.push(Leito);
       }
-      setAFor(list);
+      setLeste(list);
     });
   }
 
-  function setOc() {
+  function setO() {
     const list = [];
     leitos.forEach((Leito) => {
-      if (
-        Leito.status.path == "estadsoDoLeito/ocupado" ||
-        Leito.status.path == "estadoDoLeito/em alta"
-      ) {
+      if (Leito.endereco[0] == "ala oeste") {
         list.push(Leito);
       }
-      setOcupados(list);
+      setOeste(list);
     });
   }
 
@@ -88,24 +78,20 @@ export default function ListStatus({ navigation }) {
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("ListaDeLeitos", {
-              leitos: livre,
-              cor: "green",
+              leitos: norte,
             });
           }}
         >
           <View style={[styless.container]}>
             <View style={[styless.lives]}>
               <View style={[styless.head]}>
-                <FontAwesome name="circle" style={styless.livre} />
+                <FontAwesome style={styless.alas} />
                 <Text style={[styless.title]}>
                   {" "}
-                  LEITOS LIVRES - {livre.length}
+                  LEITOS ALA NORTE - {norte.length}
                 </Text>
               </View>
-              <Text style={styless.shortdescription}>
-                NO MOMENTO EXISTEM {livre.length} LEITOS LIVRES
-              </Text>
-              <Text style={styless.text}>TOQUE MAIS INFORMAÇÕES!</Text>
+              <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -113,24 +99,20 @@ export default function ListStatus({ navigation }) {
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("ListaDeLeitos", {
-                leitos: ocupados,
-                cor: "red",
+                leitos: sul,
               });
             }}
           >
             <View style={[styless.container]}>
               <View style={[styless.lives]}>
                 <View style={[styless.head]}>
-                  <FontAwesome name="circle" style={styless.ocupado} />
+                  <FontAwesome style={styless.alas} />
                   <Text style={[styless.title]}>
                     {" "}
-                    LEITOS OCUPADOS - {ocupados.length}
+                    LEITOS ALA SUL - {sul.length}
                   </Text>
                 </View>
-                <Text style={styless.shortdescription}>
-                  NO MOMENTO EXISTEM {ocupados.length} LEITOS OCUPADOS
-                </Text>
-                <Text style={styless.text}>TOQUE MAIS INFORMAÇÕES!</Text>
+                <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -139,24 +121,20 @@ export default function ListStatus({ navigation }) {
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("ListaDeLeitos", {
-            leitos: aLimp,
-            cor: "blue",
+            leitos: leste,
           });
         }}
       >
         <View style={[styless.container]}>
           <View style={[styless.lives]}>
             <View style={[styless.head]}>
-              <FontAwesome name="circle" style={styless.limpeza} />
+              <FontAwesome style={styless.alas} />
               <Text style={[styless.title]}>
                 {" "}
-                LEITOS HIGIENIZAÇÃO - {aLimp.length}
+                LEITOS ALA LESTE - {leste.length}
               </Text>
             </View>
-            <Text style={styless.longdescription}>
-              NO MOMENTO EXISTEM {aLimp.length} LEITOS AGUARDANDO HIGIENIZAÇÃO
-            </Text>
-            <Text style={styless.text}>TOQUE MAIS INFORMAÇÕES!</Text>
+            <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -165,24 +143,20 @@ export default function ListStatus({ navigation }) {
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("ListaDeLeitos", {
-              leitos: aFor,
-              cor: "yellow",
+              leitos: oeste,
             });
           }}
         >
           <View style={[styless.container]}>
             <View style={[styless.lives]}>
               <View style={[styless.head]}>
-                <FontAwesome name="circle" style={styless.forragem} />
+                <FontAwesome style={styless.alas} />
                 <Text style={[styless.title]}>
                   {" "}
-                  LEITOS FORRAGEM - {aFor.length}
+                  LEITOS ALA OESTE - {oeste.length}
                 </Text>
               </View>
-              <Text style={styless.longdescription}>
-                NO MOMENTO EXISTEM {aFor.length} LEITOS AGUARDANDO FORRAGEM
-              </Text>
-              <Text style={styless.text}>TOQUE MAIS INFORMAÇÕES!</Text>
+              <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -201,7 +175,7 @@ const styless = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#dcdcdc",
     width: "94%",
-    height: 165,
+    height: 120,
     paddingTop: 10,
     borderRadius: 20,
   },
@@ -209,41 +183,23 @@ const styless = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  livre: {
+  alas: {
     fontSize: 26,
-    color: "green",
-  },
-  ocupado: {
-    fontSize: 26,
-    color: "red",
-  },
-  limpeza: {
-    fontSize: 26,
-    color: "blue",
-  },
-  forragem: {
-    fontSize: 26,
-    color: "yellow",
   },
   head: {
     flexDirection: "row",
-    paddingLeft: 10,
-    paddingTop: 10,
+    paddingLeft: 20,
+    paddingTop: 20,
   },
   shortdescription: {
     fontSize: 16,
-    paddingTop: 25,
-    alignSelf: "center",
-  },
-  longdescription: {
-    fontSize: 12,
-    paddingTop: 25,
+    paddingTop: 15,
     alignSelf: "center",
   },
   text: {
     color: "#6495ED",
-    paddingTop: 40,
-    fontSize: 12,
+    paddingTop: 20,
+    fontSize: 20,
     alignSelf: "center",
   },
 });
