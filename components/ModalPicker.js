@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet, View, TouchableOpacity, Dimensions, ScrollView } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native'
 
 
 const OPTIONS = [

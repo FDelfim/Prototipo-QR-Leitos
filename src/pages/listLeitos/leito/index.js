@@ -1,4 +1,4 @@
-import React, { useState, useEffect, route } from "react";
+import React, { useState, route } from "react";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
 import { ModalPicker } from "../../../../components/ModalPicker";
 import { LogBox } from 'react-native';
