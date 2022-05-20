@@ -26,7 +26,7 @@ export default function Menu() {
     >
       <Tab.Screen
         name="Leitos"
-        component={ListTipo}
+        component={ListStatus}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Entypo name="home" size={size} color={color} />

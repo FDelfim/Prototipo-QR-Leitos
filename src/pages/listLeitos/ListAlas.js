@@ -77,7 +77,7 @@ export default function ListAlas({ navigation }) {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("ListaDeLeitos", {
+            navigation.navigate("ListConvenio", {
               leitos: norte,
             });
           }}
@@ -98,7 +98,7 @@ export default function ListAlas({ navigation }) {
         <View>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ListaDeLeitos", {
+              navigation.navigate("ListConvenio", {
                 leitos: sul,
               });
             }}
@@ -120,7 +120,7 @@ export default function ListAlas({ navigation }) {
       </View>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("ListaDeLeitos", {
+          navigation.navigate("ListConvenio", {
             leitos: leste,
           });
         }}
@@ -142,7 +142,7 @@ export default function ListAlas({ navigation }) {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("ListaDeLeitos", {
+            navigation.navigate("ListConvenio", {
               leitos: oeste,
             });
           }}

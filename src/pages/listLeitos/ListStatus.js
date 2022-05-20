@@ -87,7 +87,7 @@ export default function ListStatus({ navigation }) {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("ListaDeLeitos", {
+            navigation.navigate("Alas", {
               leitos: livre,
               cor: "green",
             });
@@ -112,7 +112,7 @@ export default function ListStatus({ navigation }) {
         <View>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ListaDeLeitos", {
+              navigation.navigate("Alas", {
                 leitos: ocupados,
                 cor: "red",
               });
@@ -138,7 +138,7 @@ export default function ListStatus({ navigation }) {
       </View>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("ListaDeLeitos", {
+          navigation.navigate("Alas", {
             leitos: aLimp,
             cor: "blue",
           });
@@ -164,7 +164,7 @@ export default function ListStatus({ navigation }) {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("ListaDeLeitos", {
+            navigation.navigate("Alas", {
               leitos: aFor,
               cor: "yellow",
             });

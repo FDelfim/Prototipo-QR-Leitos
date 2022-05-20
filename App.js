@@ -8,7 +8,7 @@ import Menu from "./src/screens/menu";
 import Leito from "./src/pages/listLeitos/leito";
 import Login from "./src/pages/login";
 import Lista from "./src/pages/listLeitos/lista";
-import ListAlas from "./src/pages/listLeitos/ListStatus";
+import ListAlas from "./src/pages/listLeitos/ListAlas";
 import ListConvenio from "./src/pages/listLeitos/ListConvenio";
 import ListTipo from "./src/pages/listLeitos/ListTipo";
 
@@ -36,9 +36,9 @@ function MyStack() {
         getId={({ params }) => params.id}
       />
       <Stack.Screen
-        name="ListAlas"
+        name="Alas"
         component={ListAlas}
-        // getId={({ params }) => params.id}
+        getId={({ params }) => params.id}
       />
       <Stack.Screen
         name="ListConvenio"

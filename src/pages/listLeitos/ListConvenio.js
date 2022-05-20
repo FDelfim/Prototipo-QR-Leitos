@@ -53,7 +53,7 @@ export default function ListConvenio({ navigation }) {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("ListaDeLeitos", {
+            navigation.navigate("ListTipo", {
               leitos: sus,
             });
           }}
@@ -71,7 +71,7 @@ export default function ListConvenio({ navigation }) {
         <View>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ListaDeLeitos", {
+              navigation.navigate("ListTipo", {
                 leitos: particular,
               });
             }}
