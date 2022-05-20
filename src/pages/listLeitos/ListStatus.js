@@ -7,65 +7,56 @@ import database from '../../config/database'
 
 export default function ListStatus({ navigation }) {
 
-    const [leitos, setLeitos] = useState([])
-    const [livre, setLivres] = useState([])
-    const [ocupados, setOcupados] = useState([])
-    const [aLimp, setALimp] = useState([])
-    const [aFor, setAFor] = useState([])
+    var [livre, setLivres] = useState([])
+    var [ocupados, setOcupados] = useState([])
+    var [aLimp, setALimp] = useState([])
+    var [aFor, setAFor] = useState([])
 
     useEffect(() => {
         database.collection("Leito").onSnapshot((querry) => {
-            const list = [];
+
+            let list = [];
+            let listL = [];
+            let listO = [];
+            let listAl = [];
+            let listAf = [];
+
             querry.forEach((doc) => {
                 list.push({ ...doc.data(), id: doc.id });
             });
-            setLeitos(list)
+
+            list.forEach((Leito) => {
+                if (Leito.status.path == 'estadoDoLeito/livre') {
+                    listL.push(Leito)
+                }
+            })
+
+            list.forEach((Leito) => {
+                if (Leito.status.path == 'estadoDoLeito/ocupado' || Leito.status.path == 'estadoDoLeito/em alta') {
+                    listO.push(Leito)
+                }
+            })
+
+            list.forEach((Leito) => {
+                if (Leito.status.path == 'estadoDoLeito/aguardando higienizacao e limpeza' || Leito.status.path == 'estadoDoLeito/em higienizacao') {
+                    listAl.push(Leito)
+                }
+            })
+
+            list.forEach((Leito) => {
+                if (Leito.status.path == 'estadoDoLeito/aguardando forragem' || Leito.status.path == 'estadoDoLeito/em processo de forragem') {
+                    listAf.push(Leito)
+                }
+            })
+
+            setLivres(listL)
+            setOcupados(listO)
+            setALimp(listAl)
+            setAFor(listAf)
+
         })
-        setLiv()
-        setOc()
-        setAl()
-        setAf()
     }, [])
 
-    function setLiv() {
-        const list = [];
-        leitos.forEach((Leito) => {
-            if (Leito.status.path == 'estadoDoLeito/livre') {
-                list.push(Leito)
-            }
-            setLivres(list)
-        });
-    }
-
-    function setAl() {
-        const list = [];
-        leitos.forEach((Leito) => {
-            if (Leito.status.path == 'estadoDoLeito/aguardando higienizacao e limpeza' || Leito.status.path == 'estadoDoLeito/em higienizacao') {
-                list.push(Leito)
-            }
-            setALimp(list)
-        });
-    }
-
-    function setAf() {
-        const list = [];
-        leitos.forEach((Leito) => {
-            if (Leito.status.path == 'estadoDoLeito/aguardando forragem' || Leito.status.path == 'estadoDoLeito/em processo de forragem') {
-                list.push(Leito)
-            }
-            setAFor(list)
-        });
-    }
-
-    function setOc() {
-        const list = [];
-        leitos.forEach((Leito) => {
-            if (Leito.status.path == 'estadoDoLeito/ocupado' || Leito.status.path == 'estadoDoLeito/em alta') {
-                list.push(Leito)
-            }
-            setOcupados(list)
-        });
-    }
 
     return (
         <View>
