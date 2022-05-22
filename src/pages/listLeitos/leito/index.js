@@ -13,6 +13,7 @@ export default function Leito({ route, navigation }) {
 
     const { idid, id, endereco, estado, ultimaMod } = route.params
     var estadoShow = estado.path.substr(14, estado.path.length);
+    const refLeito = idid;
     estadoShow = estadoShow[0].toUpperCase() + estadoShow.substr(1);
 
     const [statusl, setStatusl] = useState(estadoShow)
@@ -24,6 +25,16 @@ export default function Leito({ route, navigation }) {
 
     const setOption = (option) => {
         setStatusl(option.toLowerCase())
+    }
+
+    function formataData(data) {
+        var dia = data.getDate().toString().padStart(2, '0'),
+            mes = (data.getMonth() + 1).toString().padStart(2, '0'), //+1 pois no getMonth Janeiro começa com zero.
+            ano = data.getFullYear(),
+            hora = data.getHours().toString().padStart(2, '0'),
+            minuto = data.getMinutes().toString().padStart(2, '0');
+
+        return dia + "/" + mes + "/" + ano + ' - ' + hora + ':' + minuto;
     }
 
     return (
@@ -38,9 +49,14 @@ export default function Leito({ route, navigation }) {
             <View style={styles.containerDesc}>
                 <View style={{ paddingBottom: 10 }}>
                     <Text style={styles.detailsFont}>Endereço </Text>
-                    <Text style={styles.detailsEnd}>Ala: {endereco[0]}</Text>
-                    <Text style={styles.detailsEnd}>Tipo: {endereco[1]} - {endereco[2]} </Text>
-                    <Text style={styles.detailsEnd}>Ultima Modificação: {new Date(ultimaMod).toUTCString()} </Text>
+                    <Text style={styles.detailsEnd}>{endereco}</Text>
+                </View>
+            </View>
+
+            <View style={styles.containerDesc}>
+                <View style={{ paddingBottom: 10 }}>
+                    <Text style={styles.detailsFont}>Ultima Modificação </Text>
+                    <Text style={styles.detailsEnd}>{formataData(new Date(ultimaMod))} </Text>
                 </View>
             </View>
 
@@ -56,7 +72,7 @@ export default function Leito({ route, navigation }) {
                     </TouchableOpacity>
                     <Modal
                         transparent={true}
-                        animationType='fade'
+                        animationType='slide'
                         visible={isModalVisble}
                         nRequestClose={() => changeModalVisibility(false)}
                     >
