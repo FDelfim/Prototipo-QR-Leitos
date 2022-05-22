@@ -1,4 +1,4 @@
-import React, { useState, route } from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
 import { ModalPicker } from "../../../../components/ModalPicker";
 import { LogBox } from 'react-native';
@@ -29,7 +29,7 @@ export default function Leito({ route, navigation }) {
 
     function formataData(data) {
         var dia = data.getDate().toString().padStart(2, '0'),
-            mes = (data.getMonth() + 1).toString().padStart(2, '0'), //+1 pois no getMonth Janeiro começa com zero.
+            mes = (data.getMonth() + 1).toString().padStart(2, '0'),
             ano = data.getFullYear(),
             hora = data.getHours().toString().padStart(2, '0'),
             minuto = data.getMinutes().toString().padStart(2, '0');

@@ -9,6 +9,7 @@ import Menu from "./src/screens/menu";
 import Leito from './src/pages/listLeitos/leito';
 import Login from './src/pages/login';
 import Lista from './src/pages/listLeitos/lista';
+import Ala from './src/pages/listLeitos/listAlas'
 
 LogBox.ignoreLogs(['Setting a timer']);
 
@@ -20,7 +21,8 @@ function MyStack() {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Menu" component={Menu} options={{ headerShown: false }} />
       <Stack.Screen name="Leito" component={Leito} getId={({ params }) => params.id} />
-      <Stack.Screen name="ListaDeLeitos" component={Lista} getId={({ params }) => params.id} />
+      <Stack.Screen name="Lista de Leitos" component={Lista} getId={({ params }) => params.id} />
+      <Stack.Screen name="Alas" component={Ala} getId={({ params }) => params.id} />
     </Stack.Navigator>
   );
 }

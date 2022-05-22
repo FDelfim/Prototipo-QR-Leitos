@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import ListLeitos from '../pages/listLeitos'
 import Perfil from '../pages/perfil'
 import LerQrCode from '../pages/lerQrCode'
-import ListStatus from '../pages/listLeitos/ListStatus'
+import ListStatus from '../pages/listLeitos/listStatus'
 
 import { Entypo, Feather } from '@expo/vector-icons';
 

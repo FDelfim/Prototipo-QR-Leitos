@@ -12,6 +12,8 @@ export default function ListStatus({ navigation }) {
     var [aLimp, setALimp] = useState([])
     var [aFor, setAFor] = useState([])
 
+    const [ocupacao, setOcupacao] = useState(0)
+
     useEffect(() => {
         database.collection("Leito").onSnapshot((querry) => {
 
@@ -54,6 +56,10 @@ export default function ListStatus({ navigation }) {
             setALimp(listAl)
             setAFor(listAf)
 
+            setOcupacao(() => {
+                return listO.length * 100 / list.length
+            })
+
         })
     }, [])
 
@@ -61,8 +67,15 @@ export default function ListStatus({ navigation }) {
     return (
         <View>
             <View>
+
+                <View style={[styless.container]}>
+                    <View style={styless.ocupacao}>
+                        <Text style={styless.textOc}>Taxa de Ocupação: {ocupacao.toFixed(2)}%</Text>
+                    </View>
+                </View>
+
                 <TouchableOpacity onPress={() => {
-                    navigation.navigate('ListaDeLeitos', {
+                    navigation.navigate('Alas', {
                         leitos: livre,
                         cor: 'green'
                     })
@@ -85,7 +98,7 @@ export default function ListStatus({ navigation }) {
                 </TouchableOpacity>
                 <View>
                     <TouchableOpacity onPress={() => {
-                        navigation.navigate('ListaDeLeitos', {
+                        navigation.navigate('Alas', {
                             leitos: ocupados,
                             cor: 'red'
                         })
@@ -109,7 +122,7 @@ export default function ListStatus({ navigation }) {
                 </View>
             </View>
             <TouchableOpacity onPress={() => {
-                navigation.navigate('ListaDeLeitos', {
+                navigation.navigate('Alas', {
                     leitos: aLimp,
                     cor: 'blue'
                 })
@@ -134,7 +147,7 @@ export default function ListStatus({ navigation }) {
 
             <View>
                 <TouchableOpacity onPress={() => {
-                    navigation.navigate('ListaDeLeitos', {
+                    navigation.navigate('Alas', {
                         leitos: aFor,
                         cor: 'yellow'
                     })
@@ -171,7 +184,7 @@ const styless = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#dcdcdc',
         width: '94%',
-        height: 165,
+        height: 150,
         paddingTop: 10,
         borderRadius: 20,
     },
@@ -212,8 +225,20 @@ const styless = StyleSheet.create({
     },
     text: {
         color: '#6495ED',
-        paddingTop: 40,
+        paddingTop: 20,
         fontSize: 12,
         alignSelf: 'center'
+    },
+    ocupacao: {
+        backgroundColor: '#dcdcdc',
+        width: '94%',
+        height: 50,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textOc: {
+        fontSize: 20,
+        fontWeight: 'bold'
     }
 })
