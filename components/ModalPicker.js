@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-nati
 
 
 const OPTIONS = [
-    'Aguardando forragem', 'Aguardando higienizacao e limpeza',
+    'Aguardando forragem', 'Aguardando higienizacao',
     'Em alta', 'Em higienizacao', 'Em processo de forragem',
     'Livre', 'Ocupado'
 ]
