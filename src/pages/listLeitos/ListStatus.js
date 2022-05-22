@@ -38,7 +38,7 @@ export default function ListStatus({ navigation }) {
             })
 
             list.forEach((Leito) => {
-                if (Leito.status.path == 'estadoDoLeito/aguardando higienizacao e limpeza' || Leito.status.path == 'estadoDoLeito/em higienizacao') {
+                if (Leito.status.path == 'estadoDoLeito/aguardando higienizacao' || Leito.status.path == 'estadoDoLeito/em higienizacao') {
                     listAl.push(Leito)
                 }
             })
