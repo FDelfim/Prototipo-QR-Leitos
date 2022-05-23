@@ -1,57 +1,64 @@
 import React from "react";
+4;
 import { useEffect, useState } from "react";
 import {
     View,
+    FlatList,
     Text,
     TouchableOpacity,
     StyleSheet,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-export default function ListConvenio({ route, navigation }) {
+import database from "../../config/database";
+import Lista from "./lista";
+
+export default function ListTipo({ route, navigation }) {
 
     const { leitos, cor } = route.params
 
-    const [particular, setParticular] = useState([]);
-    const [sus, setSus] = useState([]);
+    const [adulto, setAdulto] = useState([]);
+    const [infantil, setInfantil] = useState([]);
 
     useEffect(() => {
-        const listS = []
-        const listP = []
+
+        const listA = [];
+        const listC = []
 
         leitos.forEach((Leito) => {
-            if (Leito.endereco[1] == "particular") {
-                listP.push(Leito);
+            if (Leito.endereco[2] == "adulto") {
+                listA.push(Leito);
             }
         });
 
         leitos.forEach((Leito) => {
-            if (Leito.endereco[1] == "sus") {
-                listS.push(Leito);
+            if (Leito.endereco[2] == "infantil") {
+                listC.push(Leito);
             }
         });
 
-        setParticular(listP);
-        setSus(listS);
-
+        setAdulto(listA);
+        setInfantil(listC);
     }, []);
+
 
     return (
         <View>
             <View>
                 <TouchableOpacity
                     onPress={() => {
-                        navigation.navigate('Tipo', {
-                            leitos: sus,
-                            cor: cor
+                        navigation.navigate("Lista de Leitos", {
+                            leitos: infantil,
+                            color: cor,
                         });
                     }}
                 >
                     <View style={[styless.container]}>
                         <View style={[styless.lives]}>
                             <View style={[styless.head]}>
-                                <FontAwesome name='ambulance' color={cor} style={styless.convenio} />
-                                <Text style={[styless.title]}>   LEITOS SUS - {sus.length}</Text>
+                                <FontAwesome name='child' color={cor} style={styless.convenio} />
+                                <Text style={[styless.title]}>   LEITOS INFANTIS - {infantil.length}
+                                </Text>
                             </View>
                             <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                         </View>
@@ -60,17 +67,17 @@ export default function ListConvenio({ route, navigation }) {
                 <View>
                     <TouchableOpacity
                         onPress={() => {
-                            navigation.navigate('Tipo', {
-                                leitos: particular,
-                                cor: cor
+                            navigation.navigate("Lista de Leitos", {
+                                leitos: adulto,
+                                cor: cor,
                             });
                         }}
                     >
                         <View style={[styless.container]}>
                             <View style={[styless.lives]}>
                                 <View style={[styless.head]}>
-                                    <FontAwesome name='hospital-o' color={cor} style={styless.convenio} />
-                                    <Text style={[styless.title]}>   LEITOS PARTICULAR - {particular.length}
+                                    <FontAwesome name='user' color={cor} style={styless.convenio} />
+                                    <Text style={[styless.title]}>   LEITOS ADULTOS - {adulto.length}
                                     </Text>
                                 </View>
                                 <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
@@ -108,17 +115,6 @@ const styless = StyleSheet.create({
         flexDirection: "row",
         paddingLeft: 20,
         paddingTop: 20,
-    },
-    shortdescription: {
-        fontSize: 16,
-        paddingTop: 15,
-        alignSelf: "center",
-    },
-    text: {
-        color: "#6495ED",
-        paddingTop: 20,
-        fontSize: 20,
-        alignSelf: "center",
     },
     text: {
         color: '#6495ED',
