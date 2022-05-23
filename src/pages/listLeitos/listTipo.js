@@ -49,7 +49,7 @@ export default function ListTipo({ route, navigation }) {
                     onPress={() => {
                         navigation.navigate("Lista de Leitos", {
                             leitos: infantil,
-                            color: cor,
+                            cor: cor,
                         });
                     }}
                 >
