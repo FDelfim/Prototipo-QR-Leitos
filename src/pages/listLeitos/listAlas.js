@@ -61,7 +61,7 @@ export default function ListAlas({ route, navigation }) {
             <View>
                 <TouchableOpacity
                     onPress={() => {
-                        navigation.navigate('Lista de Leitos', {
+                        navigation.navigate('Convênio', {
                             leitos: norte,
                             cor: cor
                         });
@@ -70,7 +70,7 @@ export default function ListAlas({ route, navigation }) {
                     <View style={[styless.container]}>
                         <View style={[styless.lives]}>
                             <View style={[styless.head]}>
-                                <FontAwesome name='arrow-up' color={cor} style={styless.alas} />
+                                <FontAwesome name='arrow-circle-up' color={cor} style={styless.alas} />
                                 <Text style={[styless.title]}>   LEITOS ALA NORTE - {norte.length}
                                 </Text>
                             </View>
@@ -81,7 +81,7 @@ export default function ListAlas({ route, navigation }) {
                 <View>
                     <TouchableOpacity
                         onPress={() => {
-                            navigation.navigate('Lista de Leitos', {
+                            navigation.navigate('Convênio', {
                                 leitos: sul,
                                 cor: cor
                             });
@@ -90,7 +90,7 @@ export default function ListAlas({ route, navigation }) {
                         <View style={[styless.container]}>
                             <View style={[styless.lives]}>
                                 <View style={[styless.head]}>
-                                    <FontAwesome name='arrow-down' color={cor} style={styless.alas} />
+                                    <FontAwesome name='arrow-circle-down' color={cor} style={styless.alas} />
                                     <Text style={[styless.title]}>   LEITOS ALA SUL - {sul.length}
                                     </Text>
                                 </View>
@@ -102,7 +102,7 @@ export default function ListAlas({ route, navigation }) {
             </View>
             <TouchableOpacity
                 onPress={() => {
-                    navigation.navigate('Lista de Leitos', {
+                    navigation.navigate('Convênio', {
                         leitos: leste,
                         cor: cor
                     });
@@ -111,7 +111,7 @@ export default function ListAlas({ route, navigation }) {
                 <View style={[styless.container]}>
                     <View style={[styless.lives]}>
                         <View style={[styless.head]}>
-                            <FontAwesome name='arrow-right' color={cor} style={styless.alas} />
+                            <FontAwesome name='arrow-circle-right' color={cor} style={styless.alas} />
                             <Text style={[styless.title]}>   LEITOS ALA LESTE - {leste.length}
                             </Text>
                         </View>
@@ -123,7 +123,7 @@ export default function ListAlas({ route, navigation }) {
             <View>
                 <TouchableOpacity
                     onPress={() => {
-                        navigation.navigate('Lista de Leitos', {
+                        navigation.navigate('Convênio', {
                             leitos: oeste,
                             cor: cor
                         });
@@ -132,7 +132,7 @@ export default function ListAlas({ route, navigation }) {
                     <View style={[styless.container]}>
                         <View style={[styless.lives]}>
                             <View style={[styless.head]}>
-                                <FontAwesome name='arrow-left' color={cor} style={styless.alas} />
+                                <FontAwesome name='arrow-circle-left' color={cor} style={styless.alas} />
                                 <Text style={[styless.title]}>   LEITOS ALA OESTE - {oeste.length}
                                 </Text>
                             </View>
@@ -155,7 +155,7 @@ const styless = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "#dcdcdc",
         width: "94%",
-        height: 110,
+        height: 120,
         paddingTop: 10,
         borderRadius: 20,
     },
@@ -170,11 +170,6 @@ const styless = StyleSheet.create({
         flexDirection: "row",
         paddingLeft: 20,
         paddingTop: 20,
-    },
-    shortdescription: {
-        fontSize: 16,
-        paddingTop: 15,
-        alignSelf: "center",
     },
     text: {
         color: '#6495ED',
