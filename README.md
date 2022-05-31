@@ -33,4 +33,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [x] Leitura do QRCode e redirecionamento ao leito
 - [ ] Cadastro de usuário
 - [ ] Cadastro de leitos
-- [ ] Geração de Relatórios
+- [ ] Geração de relatórios
