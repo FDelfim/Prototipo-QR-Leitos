@@ -39,7 +39,7 @@ export default function ListConvenio({ route, navigation }) {
     return (
         <View>
             <View>
-                <TouchableOpacity
+                {sus.length != 0 && <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Tipo', {
                             leitos: sus,
@@ -56,9 +56,10 @@ export default function ListConvenio({ route, navigation }) {
                             <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity>}
+
                 <View>
-                    <TouchableOpacity
+                    {particular.length != 0 && <TouchableOpacity
                         onPress={() => {
                             navigation.navigate('Tipo', {
                                 leitos: particular,
@@ -76,7 +77,7 @@ export default function ListConvenio({ route, navigation }) {
                                 <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity>}
                 </View>
             </View>
         </View>
