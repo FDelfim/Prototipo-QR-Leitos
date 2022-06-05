@@ -59,7 +59,7 @@ export default function ListAlas({ route, navigation }) {
     return (
         <View>
             <View>
-                <TouchableOpacity
+                {norte.length != 0 && <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Convênio', {
                             leitos: norte,
@@ -77,9 +77,10 @@ export default function ListAlas({ route, navigation }) {
                             <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity>}
+
                 <View>
-                    <TouchableOpacity
+                    {sul.length != 0 && <TouchableOpacity
                         onPress={() => {
                             navigation.navigate('Convênio', {
                                 leitos: sul,
@@ -97,31 +98,34 @@ export default function ListAlas({ route, navigation }) {
                                 <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity>}
                 </View>
             </View>
-            <TouchableOpacity
-                onPress={() => {
-                    navigation.navigate('Convênio', {
-                        leitos: leste,
-                        cor: cor
-                    });
-                }}
-            >
-                <View style={[styless.container]}>
-                    <View style={[styless.lives]}>
-                        <View style={[styless.head]}>
-                            <FontAwesome name='arrow-circle-right' color={cor} style={styless.alas} />
-                            <Text style={[styless.title]}>   LEITOS ALA LESTE - {leste.length}
-                            </Text>
-                        </View>
-                        <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
-                    </View>
-                </View>
-            </TouchableOpacity>
 
             <View>
-                <TouchableOpacity
+                {leste.length != 0 && <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate('Convênio', {
+                            leitos: leste,
+                            cor: cor
+                        });
+                    }}
+                >
+                    <View style={[styless.container]}>
+                        <View style={[styless.lives]}>
+                            <View style={[styless.head]}>
+                                <FontAwesome name='arrow-circle-right' color={cor} style={styless.alas} />
+                                <Text style={[styless.title]}>   LEITOS ALA LESTE - {leste.length}
+                                </Text>
+                            </View>
+                            <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity>}
+            </View>
+
+            <View>
+                {oeste.length != 0 && <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Convênio', {
                             leitos: oeste,
@@ -139,7 +143,7 @@ export default function ListAlas({ route, navigation }) {
                             <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity>}
             </View>
         </View>
     );

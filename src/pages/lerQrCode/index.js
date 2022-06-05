@@ -67,7 +67,6 @@ export default function LerQrCode({ navigation }) {
                         }
                     )
                     setScanned(false), setText(' ')
-
                 }}
             >
                 <Text style={styles.textButton}>ACESSAR LEITO</Text>
