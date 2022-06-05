@@ -45,7 +45,7 @@ export default function ListTipo({ route, navigation }) {
     return (
         <View>
             <View>
-                <TouchableOpacity
+                {infantil.length != 0 && <TouchableOpacity
                     onPress={() => {
                         navigation.navigate("Lista de Leitos", {
                             leitos: infantil,
@@ -63,9 +63,9 @@ export default function ListTipo({ route, navigation }) {
                             <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity>}
                 <View>
-                    <TouchableOpacity
+                    {adulto.length != 0 && <TouchableOpacity
                         onPress={() => {
                             navigation.navigate("Lista de Leitos", {
                                 leitos: adulto,
@@ -83,7 +83,7 @@ export default function ListTipo({ route, navigation }) {
                                 <Text style={styless.text}>TOQUE PARA MAIS INFORMAÇÕES!</Text>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity>}
                 </View>
             </View>
         </View>
