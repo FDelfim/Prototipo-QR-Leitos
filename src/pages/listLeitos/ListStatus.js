@@ -11,7 +11,6 @@ export default function ListStatus({ navigation }) {
     var [ocupados, setOcupados] = useState([])
     var [aLimp, setALimp] = useState([])
     var [aFor, setAFor] = useState([])
-
     const [ocupacao, setOcupacao] = useState(0)
 
     useEffect(() => {
@@ -74,7 +73,7 @@ export default function ListStatus({ navigation }) {
                     </View>
                 </View>
 
-                <TouchableOpacity onPress={() => {
+                {livre.length != 0 && <TouchableOpacity onPress={() => {
                     navigation.navigate('Alas', {
                         leitos: livre,
                         cor: 'green'
@@ -95,9 +94,9 @@ export default function ListStatus({ navigation }) {
                             </Text>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity>}
                 <View>
-                    <TouchableOpacity onPress={() => {
+                    {ocupados.length != 0 && <TouchableOpacity onPress={() => {
                         navigation.navigate('Alas', {
                             leitos: ocupados,
                             cor: 'red'
@@ -118,10 +117,10 @@ export default function ListStatus({ navigation }) {
                                 </Text>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity>}
                 </View>
             </View>
-            <TouchableOpacity onPress={() => {
+            {aLimp.length != 0 && <TouchableOpacity onPress={() => {
                 navigation.navigate('Alas', {
                     leitos: aLimp,
                     cor: 'blue'
@@ -143,10 +142,10 @@ export default function ListStatus({ navigation }) {
                     </View>
 
                 </View>
-            </TouchableOpacity>
+            </TouchableOpacity>}
 
             <View>
-                <TouchableOpacity onPress={() => {
+                {aFor.length != 0 && <TouchableOpacity onPress={() => {
                     navigation.navigate('Alas', {
                         leitos: aFor,
                         cor: 'yellow'
@@ -167,7 +166,7 @@ export default function ListStatus({ navigation }) {
                             </Text>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity>}
             </View>
 
         </View >
