@@ -24,13 +24,18 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React Native](https://reactnative.dev/)
 - [Google Firebase](https://firebase.google.com)
 
-## 🚩 Features
+## 🚩 Features Mobile
 
 - [x] Login do usuário
 - [x] Logout usuário
 - [x] Alteração de status do leito
 - [x] Upload da alteração ao banco de dados
 - [x] Leitura do QRCode e redirecionamento ao leito
+
+##  🚧 Interface WEB 🚧
+
+🚧 A desenvolver 🚧
+
 - [ ] Cadastro de usuário
 - [ ] Cadastro de leitos
 - [ ] Geração de relatórios
