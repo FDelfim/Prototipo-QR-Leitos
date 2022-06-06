@@ -1,10 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
-import ListLeitos from '../pages/listLeitos'
-import Perfil from '../pages/perfil'
-import LerQrCode from '../pages/lerQrCode'
-import ListStatus from '../pages/listLeitos/listStatus'
+import Perfil from '../pages/bottomMenu/perfil'
+import LerQrCode from '../pages/bottomMenu/lerQrCode'
+import ListStatus from '../pages/bottomMenu/listLeitos/listas/listStatus'
 
 import { Entypo, Feather } from '@expo/vector-icons';
 

@@ -10,8 +10,6 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-import database from "../../config/database";
-import Lista from "./lista";
 
 export default function ListTipo({ route, navigation }) {
 

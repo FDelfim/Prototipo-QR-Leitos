@@ -5,13 +5,13 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { LogBox } from 'react-native';
 
 
-import Menu from "./src/screens/menu";
-import Leito from './src/pages/listLeitos/leito';
+import Menu from "./src/config/menu";
+import Leito from './src/pages/bottomMenu/listLeitos/leito';
 import Login from './src/pages/login';
-import Lista from './src/pages/listLeitos/lista';
-import Ala from './src/pages/listLeitos/listAlas';
-import Convenio from './src/pages/listLeitos/listConvenio';
-import Tipo from './src/pages/listLeitos/listTipo'
+import Lista from './src/pages/bottomMenu/listLeitos/listas/lista';
+import Ala from './src/pages/bottomMenu/listLeitos/listas/listAlas';
+import Convenio from './src/pages/bottomMenu/listLeitos/listas/listConvenio';
+import Tipo from './src/pages/bottomMenu/listLeitos/listas/listTipo'
 
 LogBox.ignoreLogs(['Setting a timer']);
 

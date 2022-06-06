@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import styles from './style'
-import database from '../../config/database'
+import database from '../../../config/database'
 
 // UUID -> Gerador de ID Único
 

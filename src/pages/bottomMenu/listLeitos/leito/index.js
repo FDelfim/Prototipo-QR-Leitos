@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
-import { ModalPicker } from "../../../../components/ModalPicker";
+import { ModalPicker } from "../../../../../components/ModalPicker";
 import { LogBox } from 'react-native';
 
 
-import database from '../../../config/database'
+import database from '../../../../config/database'
 import styles from '../leito/style'
 
 export default function Leito({ route, navigation }) {
