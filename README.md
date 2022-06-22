@@ -34,6 +34,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ##  🚧 Interface WEB 🚧
 
+https://github.com/FDelfim/QR-Leitos-WEB
+
 🚧 A desenvolver 🚧
 
 - [ ] Cadastro de usuário
